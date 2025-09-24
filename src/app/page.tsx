@@ -15,6 +15,7 @@ export default async function HomePage() {
         slug: 'home',
       },
       populate: '*',
+      pLevel: 8
     },
     true,
   )) as StrapiData;
