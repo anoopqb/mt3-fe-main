@@ -21,6 +21,9 @@ const componentMapping: { [key: string]: React.ComponentType<any> } = {
 
 
 const DynamicZoneManager: React.FC<Props> = ({ dynamicZone }) => {
+    // Get the base image URL from environment variable
+    const baseImageUrl = process.env.NEXT_PUBLIC_IMAGE_URL || '';
+
     return (
         <>
             {dynamicZone.map((componentData, index) => {
@@ -29,7 +32,16 @@ const DynamicZoneManager: React.FC<Props> = ({ dynamicZone }) => {
                     console.warn(`No component found for: ${componentData.__component}`);
                     return null;
                 }
-                return <Component key={index} {...componentData} />;
+
+                // Add baseImageUrl to components that need it
+                const propsWithImageUrl = {
+                    ...componentData,
+                    ...(componentData.__component === 'dynamic-zone.hero' ||
+                        componentData.__component === 'dynamic-zone.two-column-content'
+                        ? { baseImageUrl } : {})
+                };
+
+                return <Component key={index} {...propsWithImageUrl} />;
             })}
         </>
     );
