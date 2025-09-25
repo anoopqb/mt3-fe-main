@@ -1,5 +1,6 @@
 import React from 'react';
-import { Hero } from '@anoopqb/simple-ui';
+import { Hero, TwoColumnContent, OneColumnContent } from '@anoopqb/simple-ui';
+
 
 interface DynamicZoneComponent {
     id: number;
@@ -14,6 +15,8 @@ interface Props {
 
 const componentMapping: { [key: string]: React.ComponentType<any> } = {
     'dynamic-zone.hero': Hero,
+    'dynamic-zone.two-column-content': TwoColumnContent,
+    'dynamic-zone.one-column-content': OneColumnContent,
 }
 
 

@@ -1,7 +1,6 @@
 // import PageContent from '@/lib/PageContent';
 import fetchContentType, { StrapiData } from '@/lib/fetchContentType';
 import { notFound } from 'next/navigation';
-import { Header } from '@anoopqb/simple-ui';
 import PageContent from '@/lib/PageContent';
 
 // Force static generation for the home page
@@ -14,7 +13,6 @@ export default async function HomePage() {
       filters: {
         slug: 'home',
       },
-      populate: '*',
       pLevel: 8
     },
     true,
@@ -25,11 +23,6 @@ export default async function HomePage() {
   return (
     <>
       <main className="mainContainer transparent">
-        <Header logoSrc="logoipsum-405.png" menuItems={[
-          { label: 'Home', href: '/' },
-          { label: 'About', href: '/about' },
-          { label: 'Contact', href: '/contact' },
-        ]} />
         <PageContent pageData={pageData} />
       </main>
     </>
