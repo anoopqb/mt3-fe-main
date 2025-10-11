@@ -45,8 +45,15 @@ export default async function fetchContentType(
             apiUrl
         );
 
+        // Get bearer token from environment variable
+        const token = process.env.NEXT_PUBLIC_API_TOKEN;
 
-        const response = await fetch(`${url.href}?${qs.stringify(queryParams)}`);
+        const response = await fetch(`${url.href}?${qs.stringify(queryParams)}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+        });
 
         if (!response.ok) {
             throw new Error(
