@@ -4,6 +4,12 @@ import "./globals.css";
 import "@anoopqb/simple-ui/dist/index.css";
 // import { Header } from "@anoopqb/simple-ui";
 
+
+// import "./styles/sitea.css";
+
+
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -35,8 +41,14 @@ export default async function RootLayout({
   //   primaryColor: apiData.data.primaryColor
   // };
 
+  const siteId = process.env.NEXT_PUBLIC_SITE || 'sitea';
+  const cssFile = `styles/${siteId}.css`;
+
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href={`${cssFile}`} />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {/* <Header {...headerProps} /> */}
         {children}
