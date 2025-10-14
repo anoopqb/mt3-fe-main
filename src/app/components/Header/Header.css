@@ -1,0 +1,33 @@
+.simple-ui-header {
+  background-color: #807bc5;
+  padding: 8px 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.header-nav {
+  display: flex;
+  gap: 16px;
+}
+
+.header-menu-item {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+}
+
+.header-menu-item:hover {
+  color: #f0f0f0;
+}
