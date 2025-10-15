@@ -10,6 +10,7 @@ const OneColumnContent: React.FC<OneColumnContentProps> = ({
     className = '',
     overlayOpacity = 0.4,
     textAlign = 'center',
+    disclaimer = '*Restrictions May Apply',
 }) => {
     const getOptimalImageUrl = (imageData: BackgroundImageData): string => {
         // Return the best available image format for background, preferring large > medium > original > small
@@ -82,7 +83,7 @@ const OneColumnContent: React.FC<OneColumnContentProps> = ({
                 <p className="one-column-content__description">{description}</p>
                 {renderCTAButtons()}
 
-                {/* <p>This is a disclaimer text</p> */}
+                {/* <p className='one-column-content__disclaimer'>{disclaimer}</p> */}
             </div>
 
 

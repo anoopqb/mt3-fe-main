@@ -57,4 +57,5 @@ export interface OneColumnContentProps {
     className?: string;
     overlayOpacity?: number;
     textAlign?: 'left' | 'center' | 'right';
+    disclaimer?: string;
 }
