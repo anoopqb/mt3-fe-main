@@ -13,7 +13,7 @@
     flex-direction: row;
 }
 
-.two-content__container-content.reverse {
+.two-column-content__container.reverse {
     flex-direction: row-reverse;
 }
 
