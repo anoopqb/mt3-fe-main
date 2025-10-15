@@ -1,22 +1,22 @@
 import "./Header.css";
+import Image from "next/image";
 
 export interface HeaderProps {
-  propertyName: string;
-  topNavItems: { id: number; label: string; url: string; target: string }[];
-  primaryColor: string;
+  Logo: string;
+  topNavItems: { id: number; MenuItem: string; url: string; target: string }[];
 }
 
-const Header = ({ propertyName, topNavItems, primaryColor }: HeaderProps) => {
+const Header = ({ Logo, topNavItems }: HeaderProps) => {
   return (
-    <header className="simple-ui-header" style={{ backgroundColor: primaryColor }}>
+    <header className="simple-ui-header">
       <div className="header-inner">
         <div className="header-logo">
-          <h1>{propertyName}</h1>
+          <div><Image src={Logo} alt="Logo" width={100} height={100} /></div>
         </div>
         <nav className="header-nav">
           {topNavItems.map((item) => (
             <a key={item.id} href={item.url} target={item.target} className="header-menu-item">
-              {item.label}
+              {item.MenuItem}
             </a>
           ))}
         </nav>

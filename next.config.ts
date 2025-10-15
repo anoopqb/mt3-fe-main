@@ -13,6 +13,9 @@ if (fs.existsSync(envFile)) {
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
+  images: {
+    unoptimized: true,
+  },
   distDir: `build/${process.env.SITE || 'local'}`,
   env: {
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
