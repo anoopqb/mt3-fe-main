@@ -12,7 +12,6 @@ const TwoColumnContent: React.FC<TwoColumnContentProps> = ({
     baseImageUrl = '',
 }) => {
     const containerClasses = [
-        'two-column-content',
         reverse_column ? 'reverse' : '',
         className
     ].filter(Boolean).join(' ');
@@ -74,8 +73,8 @@ const TwoColumnContent: React.FC<TwoColumnContentProps> = ({
     };
 
     return (
-        <div className={containerClasses}>
-            <div className="two-column-content__container">
+        <div className='two-column-content'>
+            <div className={`two-column-content__container ${containerClasses}`}>
                 <div className="two-column-content__text">
                     <h2 className="two-column-content__title">{title}</h2>
                     <p className="two-column-content__description">{description}</p>
