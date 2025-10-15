@@ -1,7 +1,9 @@
-body {
-    background-color: cadetblue;
+html {
+    --button-primary: #222222;
+    --button-primary-hover: #111111;
+    --bg-footer: #222222;
 }
 
-.one-column-content {
-    background: bisque;
+.two-column-content__image img {
+    border-radius: 100vw;
 }
