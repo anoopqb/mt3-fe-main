@@ -42,7 +42,7 @@ const OneColumnContent: React.FC<OneColumnContentProps> = ({
 
     const containerStyle: React.CSSProperties = backgroundImage
         ? {
-            backgroundImage: `url(${getOptimalImageUrl(backgroundImage)})`,
+            backgroundImage: `url(${process.env.NEXT_PUBLIC_IMAGE_URL}${getOptimalImageUrl(backgroundImage)})`,
         }
         : {};
 
