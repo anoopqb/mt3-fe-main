@@ -1,9 +1,7 @@
-html {
-    --button-primary: #222222;
-    --button-primary-hover: #111111;
-    --bg-footer: #222222;
-}
-
-.two-column-content__image img {
-    border-radius: 100vw;
+body {
+    --button-primary: #DB7E48;
+    --button-primary-hover: #9CD0D3;
+    --primary-bg: #ffffff;
+    --primary-color: #445a3e;
+    --bg-footer: #1a5667;
 }

@@ -67,7 +67,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    justify-content: inherit;
+    justify-content: center;
 }
 
 .simple-ui-hero__cta {
