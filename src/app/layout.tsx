@@ -31,15 +31,22 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   // Fetch data from the API
-  // const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/global?pLevel=8`);
-  // const apiData = await response.json();
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/headers?filters[slug]=header&pLevel=8`, {
+    headers: {
+      'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+  });
+  const apiData = await response.json();
+
+  console.log(apiData.data[0].NavMenu)
 
   // // Extract Header props from the API response
-  // const headerProps = {
-  //   propertyName: apiData.data.propertyName,
-  //   topNavItems: apiData.data.topNavItems,
-  //   primaryColor: apiData.data.primaryColor
-  // };
+  const headerProps = {
+    Logo: apiData.data[0].Logo.url,
+    topNavItems: apiData.data[0].NavMenu,
+    // primaryColor: apiData.data.primaryColor
+  };
 
   const siteId = process.env.NEXT_PUBLIC_SITE || 'sitea';
   const cssFile = `styles/${siteId}.css`;
@@ -50,7 +57,7 @@ export default async function RootLayout({
         <link rel="stylesheet" href={`${cssFile}`} />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Header propertyName="Logo" topNavItems={[]} primaryColor="" />
+        <Header Logo={`${process.env.NEXT_PUBLIC_IMAGE_URL}${headerProps.Logo}`} topNavItems={headerProps.topNavItems} primaryColor="" />
         {children}
         <Footer
           propertyName="Elite Roofers"

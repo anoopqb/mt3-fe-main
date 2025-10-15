@@ -13,22 +13,23 @@
   --color-primary: #fff;
 }
 
+
+
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  width: 100%;
 }
 
-.header-logo h1 {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--color-primary);
+.header-logo img {
+  height: 50px;
+  object-fit: contain;
 }
 
 .header-nav {
   display: flex;
   gap: 16px;
+  margin-left: auto;
 }
 
 .header-menu-item {
