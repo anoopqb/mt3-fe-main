@@ -1,7 +1,16 @@
 .simple-ui-header {
-  background-color: #807bc5;
-  padding: 8px 16px;
-  border-bottom: 1px solid #ddd;
+  background-color: var(--button-primary);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  color: #000;
+  --color-primary: #fff;
 }
 
 .header-inner {
@@ -14,7 +23,7 @@
   margin: 0;
   font-size: 1.5rem;
   font-weight: bold;
-  color: #fff;
+  color: var(--color-primary);
 }
 
 .header-nav {
@@ -24,10 +33,10 @@
 
 .header-menu-item {
   text-decoration: none;
-  color: #fff;
+  color: var(--color-primary);
   font-weight: 500;
 }
 
 .header-menu-item:hover {
-  color: #f0f0f0;
+  color: var(--color-primary);
 }

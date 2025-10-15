@@ -2,7 +2,7 @@ import React from 'react';
 import OneColumnContent from '@/app/components/OneColumnContent';
 import TwoColumnContent from '@/app/components/TwoColumnContent';
 import Hero from '@/app/components/Hero';
-import FeeCalc from '@/app/components/FeeCalc';
+// import FeeCalc from '@/app/components/FeeCalc';
 
 interface DynamicZoneComponent {
     id: number;
@@ -19,7 +19,7 @@ const componentMapping: { [key: string]: React.ComponentType<any> } = {
     'dynamic-zone.hero': Hero,
     'dynamic-zone.two-column-content': TwoColumnContent,
     'dynamic-zone.one-column-content': OneColumnContent,
-    'dynamic-zone.fee-calc': FeeCalc,
+    // 'dynamic-zone.fee-calc': FeeCalc,
 };
 
 const DynamicZoneManager: React.FC<DynamicZoneManagerProps> = ({

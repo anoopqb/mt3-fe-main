@@ -75,13 +75,15 @@ const TwoColumnContent: React.FC<TwoColumnContentProps> = ({
 
     return (
         <div className={containerClasses}>
-            <div className="two-column-content__text">
-                <h2 className="two-column-content__title">{title}</h2>
-                <p className="two-column-content__description">{description}</p>
-                {renderCTAButtons()}
+            <div className="two-column-content__container">
+                <div className="two-column-content__text">
+                    <h2 className="two-column-content__title">{title}</h2>
+                    <p className="two-column-content__description">{description}</p>
+                    {renderCTAButtons()}
+                </div>
+                {renderImage()}
             </div>
-            {renderImage()}
-        </div>
+        </div >
     );
 };
 

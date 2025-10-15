@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import "@anoopqb/simple-ui/dist/index.css";
-// import { Header } from "@anoopqb/simple-ui";
+// import "@anoopqb/simple-ui/dist/index.css";
+import { Header, Footer } from "./components";
 
 
 // import "./styles/sitea.css";
@@ -50,8 +50,25 @@ export default async function RootLayout({
         <link rel="stylesheet" href={`${cssFile}`} />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {/* <Header {...headerProps} /> */}
+        <Header propertyName="Logo" topNavItems={[]} primaryColor="" />
         {children}
+        <Footer
+          propertyName="Elite Roofers"
+          address={{
+            street: "123 Main Street",
+            city: "San Francisco",
+            state: "CA",
+            zipCode: "94102"
+          }}
+          officeHours={{
+            weekdays: "9:00 AM - 6:00 PM",
+            saturday: "10:00 AM - 4:00 PM",
+            sunday: "Closed"
+          }}
+          primaryColor=""
+          phone="(555) 123-4567"
+          email="info@example.com"
+        />
       </body>
     </html>
   );

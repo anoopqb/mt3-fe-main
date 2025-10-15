@@ -1,7 +1,5 @@
-/* body {
-    background-color: cadetblue;
+body {
+    --button-primary: rgb(160, 95, 127);
+    --button-primary-hover: rgb(128, 71, 99);
+    --bg-footer: rgb(34, 0, 17);
 }
-
-.one-column-content {
-    background: violet;
-} */
