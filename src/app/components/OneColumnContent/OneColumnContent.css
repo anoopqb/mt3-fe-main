@@ -74,7 +74,7 @@
 .one-column-content__cta {
     display: inline-block;
     padding: 0.875rem 2rem;
-    background-color: #007bff;
+    background-color: var(--button-primary);
     color: white;
     text-decoration: none;
     border-radius: 6px;
@@ -86,9 +86,7 @@
 }
 
 .one-column-content__cta:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: var(--button-primary-hover);
 }
 
 .one-column-content__cta:focus {

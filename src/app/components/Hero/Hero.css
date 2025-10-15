@@ -7,6 +7,7 @@
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
+    height: 90vh;
 }
 
 .simple-ui-hero__overlay {
@@ -72,7 +73,7 @@
 .simple-ui-hero__cta {
     display: inline-block;
     padding: 1rem 2rem;
-    background: #007bff;
+    background: var(--button-primary);
     color: white;
     text-decoration: none;
     border: none;
@@ -83,17 +84,10 @@
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
 }
 
 .simple-ui-hero__cta:hover {
-    background: #0056b3;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
-}
-
-.simple-ui-hero__cta:active {
-    transform: translateY(0);
+    background: var(--button-primary-hover);
 }
 
 /* Responsive Design */

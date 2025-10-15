@@ -63,7 +63,7 @@ const Hero = ({
     description,
     image,
     cta,
-    height = "60vh",
+    height = "",
     overlay = true,
     textAlign = "center",
     baseImageUrl = ""

@@ -1,5 +1,5 @@
 .simple-ui-header {
-  background-color: #807bc5;
+  background-color: var(--button-primary);
   height: 80px;
   display: flex;
   align-items: center;
@@ -10,7 +10,7 @@
   right: 0;
   z-index: 1000;
   color: #000;
-  --color-primary: #000;
+  --color-primary: #fff;
 }
 
 .header-inner {
