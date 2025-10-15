@@ -30,22 +30,43 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Fetch data from the API
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/headers?filters[slug]=header&pLevel=8`, {
-    headers: {
-      'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
-      'Content-Type': 'application/json',
-    },
-  });
-  const apiData = await response.json();
+  // Fetch data from two API endpoints in parallel
+  const [response1, response2] = await Promise.all([
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/headers?filters[slug]=header&pLevel=8`, {
+      headers: {
+        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+    }),
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/footers?pLevel=8`, {
+      headers: {
+        'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+    }),
+  ]);
 
-  console.log(apiData.data[0].NavMenu)
+  const [headerData, footerData] = await Promise.all([
+    response1.json(),
+    response2.json(),
+  ]);
 
-  // // Extract Header props from the API response
+  // console.log('First endpoint data:', headerData.data[0]?.NavMenu);
+  console.log('Second endpoint data:', footerData.data);
+
+  // Extract Header props from the API response
   const headerProps = {
-    Logo: apiData.data[0].Logo.url,
-    topNavItems: apiData.data[0].NavMenu,
-    // primaryColor: apiData.data.primaryColor
+    Logo: `${process.env.NEXT_PUBLIC_IMAGE_URL}${headerData.data[0].Logo.url}`,
+    topNavItems: headerData.data[0].NavMenu,
+  };
+
+  const footerProps = {
+    Logo: `${process.env.NEXT_PUBLIC_IMAGE_URL}${footerData.data[0].Logo.url}`,
+    AddressLane1: footerData.data[0].AddressLane1,
+    AddressLane2: footerData.data[0].AddressLane2,
+    ZipCode: footerData.data[0].ZipCode,
+    PhoneNumber: footerData.data[0].PhoneNumber,
+    OfficeHours: footerData.data[0].OfficeHours?.[0]?.children?.[0]?.text || '',
   };
 
   const siteId = process.env.NEXT_PUBLIC_SITE || 'sitea';
@@ -57,24 +78,10 @@ export default async function RootLayout({
         <link rel="stylesheet" href={`${cssFile}`} />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Header Logo={`${process.env.NEXT_PUBLIC_IMAGE_URL}${headerProps.Logo}`} topNavItems={headerProps.topNavItems} primaryColor="" />
+        <Header {...headerProps} />
         {children}
         <Footer
-          propertyName="Elite Roofers"
-          address={{
-            street: "123 Main Street",
-            city: "San Francisco",
-            state: "CA",
-            zipCode: "94102"
-          }}
-          officeHours={{
-            weekdays: "9:00 AM - 6:00 PM",
-            saturday: "10:00 AM - 4:00 PM",
-            sunday: "Closed"
-          }}
-          primaryColor=""
-          phone="(555) 123-4567"
-          email="info@example.com"
+          {...footerProps}
         />
       </body>
     </html>

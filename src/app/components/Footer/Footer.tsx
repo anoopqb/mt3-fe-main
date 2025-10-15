@@ -1,76 +1,52 @@
 import "./Footer.css";
+import Image from "next/image";
 
 export interface FooterProps {
-    propertyName: string;
-    address: {
-        street: string;
-        city: string;
-        state: string;
-        zipCode: string;
-    };
-    officeHours: {
-        weekdays: string;
-        saturday?: string;
-        sunday?: string;
-    };
-    primaryColor: string;
-    phone?: string;
-    email?: string;
+    Logo: string;
+    AddressLane1: string;
+    AddressLane2: string;
+    ZipCode: string;
+    PhoneNumber: string;
+    OfficeHours: string;
 }
 
 const Footer = ({
-    propertyName,
-    address,
-    officeHours,
-    primaryColor,
-    phone,
-    email,
+    Logo,
+    AddressLane1,
+    AddressLane2,
+    ZipCode,
+    PhoneNumber,
+    OfficeHours,
 }: FooterProps) => {
     return (
-        <footer className="simple-ui-footer" style={{ backgroundColor: primaryColor }}>
+        <footer className="simple-ui-footer">
             <div className="footer-inner">
                 <div className="footer-section">
-                    <h3 className="footer-title">{propertyName}</h3>
+                    <div className="footer-logo"><Image src={Logo} alt="Logo" width={100} height={100} /></div>
                     <div className="footer-content">
                         <p className="footer-address">
-                            {address.street}
+                            {AddressLane1}
                             <br />
-                            {address.city}, {address.state} {address.zipCode}
+                            {AddressLane2}, {ZipCode}
+
                         </p>
-                        {phone && (
+                        {PhoneNumber && (
                             <p className="footer-contact">
-                                <strong>Phone:</strong> <a href={`tel:${phone}`}>{phone}</a>
-                            </p>
-                        )}
-                        {email && (
-                            <p className="footer-contact">
-                                <strong>Email:</strong> <a href={`mailto:${email}`}>{email}</a>
+                                <strong>Phone:</strong> <a href={`tel:${PhoneNumber}`}>{PhoneNumber}</a>
                             </p>
                         )}
                     </div>
                 </div>
 
-                <div className="footer-section">
+                <div className="footer-section office-hours">
                     <h3 className="footer-title">Office Hours</h3>
-                    <div className="footer-content">
-                        <p className="footer-hours">
-                            <strong>Monday - Friday:</strong> {officeHours.weekdays}
-                        </p>
-                        {officeHours.saturday && (
-                            <p className="footer-hours">
-                                <strong>Saturday:</strong> {officeHours.saturday}
-                            </p>
-                        )}
-                        {officeHours.sunday && (
-                            <p className="footer-hours">
-                                <strong>Sunday:</strong> {officeHours.sunday}
-                            </p>
-                        )}
+                    <div className="footer-content ">
+                        <div dangerouslySetInnerHTML={{ __html: OfficeHours }} />
                     </div>
                 </div>
             </div>
             <div className="footer-bottom">
-                <p>&copy; {new Date().getFullYear()} {propertyName}. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()}. All rights reserved.</p>
             </div>
         </footer>
     );

@@ -4,12 +4,11 @@ import Image from "next/image";
 export interface HeaderProps {
   Logo: string;
   topNavItems: { id: number; MenuItem: string; url: string; target: string }[];
-  primaryColor: string;
 }
 
-const Header = ({ Logo, topNavItems, primaryColor }: HeaderProps) => {
+const Header = ({ Logo, topNavItems }: HeaderProps) => {
   return (
-    <header className="simple-ui-header" style={{ backgroundColor: primaryColor }}>
+    <header className="simple-ui-header">
       <div className="header-inner">
         <div className="header-logo">
           <div><Image src={Logo} alt="Logo" width={100} height={100} /></div>
