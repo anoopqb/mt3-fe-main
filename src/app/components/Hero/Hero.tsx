@@ -70,11 +70,7 @@ const Hero = ({
 }: HeroProps) => {
     // Get the best available image URL - prioritize larger formats for hero background
     const getImageUrl = (imageData: ImageData) => {
-        let url = '';
-        if (imageData.formats.large) url = imageData.formats.large.url;
-        else if (imageData.formats.medium) url = imageData.formats.medium.url;
-        else if (imageData.formats.small) url = imageData.formats.small.url;
-        else url = imageData.url; // fallback to original
+        let url = imageData.url;
 
         return baseImageUrl ? `${baseImageUrl}${url}` : url;
     };

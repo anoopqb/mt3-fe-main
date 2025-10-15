@@ -1,5 +1,8 @@
 body {
-    --button-primary: rgb(160, 95, 127);
-    --button-primary-hover: rgb(128, 71, 99);
+    --button-primary: #cb9576;
+    --button-primary-hover: #445a3e;
     --bg-footer: rgb(34, 0, 17);
+    --primary-bg: #f3ecdf;
+    --primary-color: #445a3e;
+    --bg-footer: #445a3e;
 }

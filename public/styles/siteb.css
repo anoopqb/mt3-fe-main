@@ -1,7 +1,7 @@
 body {
-    background-color: cadetblue;
-}
-
-.one-column-content {
-    background: bisque;
+    --button-primary: #DB7E48;
+    --button-primary-hover: #9CD0D3;
+    --primary-bg: #ffffff;
+    --primary-color: #445a3e;
+    --bg-footer: #1a5667;
 }

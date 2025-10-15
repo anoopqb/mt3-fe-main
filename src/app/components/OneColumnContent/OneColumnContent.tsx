@@ -13,19 +13,7 @@ const OneColumnContent: React.FC<OneColumnContentProps> = ({
 }) => {
     const getOptimalImageUrl = (imageData: BackgroundImageData): string => {
         // Return the best available image format for background, preferring large > medium > original > small
-        if (imageData.formats.large) {
-            return imageData.formats.large.url;
-        }
-        if (imageData.formats.medium) {
-            return imageData.formats.medium.url;
-        }
-        if (imageData.url) {
-            return imageData.url;
-        }
-        if (imageData.formats.small) {
-            return imageData.formats.small.url;
-        }
-        return '';
+        return imageData.url;
     };
 
     const containerClasses = [
