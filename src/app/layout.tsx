@@ -51,8 +51,6 @@ export default async function RootLayout({
     response2.json(),
   ]);
 
-  // console.log('First endpoint data:', headerData.data[0]?.NavMenu);
-  console.log('Second endpoint data:', footerData.data);
 
   // Extract Header props from the API response
   const headerProps = {
