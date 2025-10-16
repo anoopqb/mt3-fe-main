@@ -13,6 +13,7 @@ interface DynamicZoneComponent {
 export interface DynamicZoneManagerProps {
     dynamicZone: DynamicZoneComponent[];
     baseImageUrl?: string;
+    propertyID?: string;
 }
 
 const componentMapping: { [key: string]: React.ComponentType<any> } = {
@@ -24,7 +25,8 @@ const componentMapping: { [key: string]: React.ComponentType<any> } = {
 
 const DynamicZoneManager: React.FC<DynamicZoneManagerProps> = ({
     dynamicZone,
-    baseImageUrl = 'http://localhost:1337'
+    baseImageUrl = 'http://localhost:1337',
+    propertyID = ''
 }) => {
     return (
         <>
@@ -35,15 +37,17 @@ const DynamicZoneManager: React.FC<DynamicZoneManagerProps> = ({
                     return null;
                 }
 
-                // Add baseImageUrl to components that need it
-                const propsWithImageUrl = {
+                // Add baseImageUrl and propertyID to components that need them
+                const propsWithExtras = {
                     ...componentData,
                     ...(componentData.__component === 'dynamic-zone.hero' ||
                         componentData.__component === 'dynamic-zone.two-column-content'
-                        ? { baseImageUrl } : {})
+                        ? { baseImageUrl } : {}),
+                    ...(componentData.__component === 'dynamic-zone.one-column-content'
+                        ? { propertyID } : {})
                 };
 
-                return <Component key={index} {...propsWithImageUrl} />;
+                return <Component key={index} {...propsWithExtras} />;
             })}
         </>
     );

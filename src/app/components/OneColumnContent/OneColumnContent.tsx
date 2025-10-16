@@ -1,5 +1,5 @@
 import React from 'react';
-import { OneColumnContentProps, BackgroundImageData } from './types';
+import { OneColumnContentProps, BackgroundImageData, FeeCalculator } from './types';
 import './OneColumnContent.css';
 
 import FeeCalc from '../FeeCalc';
@@ -12,7 +12,7 @@ const OneColumnContent: React.FC<OneColumnContentProps> = ({
     className = '',
     overlayOpacity = 0.4,
     textAlign = 'center',
-    propertyID = 'CB3DB4',
+    propertyID = '',
     feeCalculator = null,
     disclaimer = '*Restrictions May Apply',
 }) => {
@@ -22,7 +22,7 @@ const OneColumnContent: React.FC<OneColumnContentProps> = ({
     };
 
 
-    console.log(feeCalculator);
+    const shouldShowFeeCalc = feeCalculator === null || (feeCalculator && !feeCalculator.disable);
 
     const containerClasses = [
         'one-column-content',
@@ -82,13 +82,11 @@ const OneColumnContent: React.FC<OneColumnContentProps> = ({
                     {/* <p className='one-column-content__disclaimer'>{disclaimer}</p> */}
                 </div>
 
-
-
-
-
             </div>
 
-            {feeCalculator === null && <FeeCalc propertyID={propertyID} />}
+            {shouldShowFeeCalc && <FeeCalc propertyID={propertyID} />}
+
+
         </>
     );
 };

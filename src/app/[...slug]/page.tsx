@@ -1,6 +1,7 @@
 import fetchContentType, { StrapiData } from "@/lib/fetchContentType";
 import { notFound } from "next/navigation";
 import PageContent from "@/lib/PageContent";
+import { getPropertyID } from "@/lib/getPropertyID";
 
 export const dynamic = 'force-static';
 
@@ -39,23 +40,26 @@ const InnerPage = async ({ params, searchParams }: { params: { slug: string[] },
   const resolvedSearchParams = await searchParams;
   const status = resolvedSearchParams?.status;
 
-  const pageData = (await fetchContentType(
-    'pages',
-    {
-      filters: {
-        slug,
+  const [pageData, propertyID] = await Promise.all([
+    fetchContentType(
+      'pages',
+      {
+        filters: {
+          slug,
+        },
+        ...(status && { status }),
+        pLevel: 8
       },
-      ...(status && { status }),
-      pLevel: 8
-    },
-    true,
-  )) as StrapiData;
+      true,
+    ) as Promise<StrapiData>,
+    getPropertyID()
+  ]);
 
   if (!pageData) notFound();
 
   return (
     <>
-      <PageContent pageData={pageData} />
+      <PageContent pageData={pageData} propertyID={propertyID} />
     </>
   );
 };

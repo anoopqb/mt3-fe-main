@@ -67,6 +67,11 @@ export default async function RootLayout({
     OfficeHours: footerData.data[0].OfficeHours?.[0]?.children?.[0]?.text || '',
   };
 
+  // Extract propertyID from header API response
+  const propertyID = headerData.data[0].PropertyID;
+
+  // console.log('propertyID', propertyID);
+
   const siteId = process.env.NEXT_PUBLIC_SITE || 'sitea';
   const cssFile = `styles/${siteId}.css`;
 
@@ -75,7 +80,7 @@ export default async function RootLayout({
       <head>
         <link rel="stylesheet" href={`${cssFile}`} />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable}`} data-property-id={propertyID}>
         <Header {...headerProps} />
         {children}
         <Footer

@@ -15,10 +15,12 @@ interface PageData {
 
 export default function PageContent({
     pageData,
+    propertyID,
 }: {
     pageData: PageData | null | undefined;
+    propertyID?: string;
 }) {
     // Try both naming conventions
     const dynamicZone = pageData?.dynamicZone || pageData?.dynamic_zone;
-    return <>{dynamicZone && <DynamicZoneManager dynamicZone={dynamicZone} />}</>;
+    return <>{dynamicZone && <DynamicZoneManager dynamicZone={dynamicZone} propertyID={propertyID} />}</>;
 }
