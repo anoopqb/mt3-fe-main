@@ -58,4 +58,11 @@ export interface OneColumnContentProps {
     overlayOpacity?: number;
     textAlign?: 'left' | 'center' | 'right';
     disclaimer?: string;
+    propertyID?: string;
+    feeCalculator?: any | null;
+}
+
+export interface FeeCalculator {
+    id: number;
+    disable: boolean;
 }

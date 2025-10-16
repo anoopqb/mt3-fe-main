@@ -2,6 +2,8 @@ import React from 'react';
 import { OneColumnContentProps, BackgroundImageData } from './types';
 import './OneColumnContent.css';
 
+import FeeCalc from '../FeeCalc';
+
 const OneColumnContent: React.FC<OneColumnContentProps> = ({
     title,
     description,
@@ -10,12 +12,17 @@ const OneColumnContent: React.FC<OneColumnContentProps> = ({
     className = '',
     overlayOpacity = 0.4,
     textAlign = 'center',
+    propertyID = 'CB3DB4',
+    feeCalculator = null,
     disclaimer = '*Restrictions May Apply',
 }) => {
     const getOptimalImageUrl = (imageData: BackgroundImageData): string => {
         // Return the best available image format for background, preferring large > medium > original > small
         return imageData.url;
     };
+
+
+    console.log(feeCalculator);
 
     const containerClasses = [
         'one-column-content',
@@ -59,23 +66,30 @@ const OneColumnContent: React.FC<OneColumnContentProps> = ({
     };
 
     return (
-        <div className={containerClasses} style={containerStyle}>
-            {backgroundImage && (
-                <div
-                    className="one-column-content__overlay"
-                    style={overlayStyle}
-                />
-            )}
-            <div className={contentClasses}>
-                <h2 className="one-column-content__title">{title}</h2>
-                <p className="one-column-content__description">{description}</p>
-                {renderCTAButtons()}
+        <>
+            <div className={containerClasses} style={containerStyle}>
+                {backgroundImage && (
+                    <div
+                        className="one-column-content__overlay"
+                        style={overlayStyle}
+                    />
+                )}
+                <div className={contentClasses}>
+                    <h2 className="one-column-content__title">{title}</h2>
+                    <p className="one-column-content__description">{description}</p>
+                    {renderCTAButtons()}
 
-                {/* <p className='one-column-content__disclaimer'>{disclaimer}</p> */}
+                    {/* <p className='one-column-content__disclaimer'>{disclaimer}</p> */}
+                </div>
+
+
+
+
+
             </div>
 
-
-        </div>
+            {feeCalculator === null && <FeeCalc propertyID={propertyID} />}
+        </>
     );
 };
 
