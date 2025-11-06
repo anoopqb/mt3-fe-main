@@ -1,5 +1,5 @@
 .simple-ui-header {
-  background-color: var(--primary-bg);
+  background-color: var(--header-background-color);
   height: 80px;
   display: flex;
   align-items: center;

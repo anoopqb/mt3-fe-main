@@ -5,4 +5,24 @@ body {
     --primary-bg: #f3ecdf;
     --primary-color: #445a3e;
     --bg-footer: #445a3e;
+
+
+    --header-background-color: var(--primary-bg);
+    --hero-text-align: center;
 }
+
+/* .header-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.header-logo {
+    grid-column: 2 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-nav {
+    grid-column: 3 / 4;
+} */

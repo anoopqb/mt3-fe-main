@@ -1,4 +1,5 @@
 import "./Hero.css";
+import Image from "next/image";
 
 interface ImageFormat {
     name: string;
@@ -40,6 +41,22 @@ interface ImageData {
     publishedAt: string;
 }
 
+interface VideoData {
+    id: number;
+    documentId: string;
+    name: string;
+    alternativeText: string | null;
+    caption: string | null;
+    width: number | null;
+    height: number | null;
+    formats: any;
+    hash: string;
+    ext: string;
+    mime: string;
+    size: number;
+    url: string;
+}
+
 interface CTAData {
     id: number;
     label: string;
@@ -50,7 +67,9 @@ interface CTAData {
 export interface HeroProps {
     title: string;
     description?: string;
-    image: ImageData[];
+    image?: ImageData[];
+    Video?: VideoData;
+    HeroType: 'Image' | 'Video';
     cta: CTAData[];
     height?: string;
     overlay?: boolean;
@@ -62,31 +81,64 @@ const Hero = ({
     title,
     description,
     image,
+    Video,
+    HeroType,
     cta,
     height = "",
     overlay = true,
     textAlign = "center",
     baseImageUrl = ""
 }: HeroProps) => {
-    // Get the best available image URL - prioritize larger formats for hero background
+    // Get the best available image URL
     const getImageUrl = (imageData: ImageData) => {
         let url = imageData.url;
-
         return baseImageUrl ? `${baseImageUrl}${url}` : url;
     };
 
-    const backgroundImageUrl = image && image.length > 0 ? getImageUrl(image[0]) : '';
+    const getVideoUrl = (videoData: VideoData) => {
+        return baseImageUrl ? `${baseImageUrl}${videoData.url}` : videoData.url;
+    };
 
     return (
         <section
             className={`simple-ui-hero simple-ui-hero--${textAlign}`}
-            style={{
-                backgroundImage: backgroundImageUrl ? `url(${backgroundImageUrl})` : 'none',
-                height
-            }}
+            style={{ height }}
         >
+            {/* Render Image or Video based on HeroType */}
+            {HeroType === 'Image' && image && image.length > 0 && (
+                <div className="simple-ui-hero__media">
+                    <Image
+                        src={getImageUrl(image[0])}
+                        alt={image[0].alternativeText || title}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        priority
+                    />
+                </div>
+            )}
+
+            {HeroType === 'Video' && Video && (
+                <div className="simple-ui-hero__media">
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover'
+                        }}
+                    >
+                        <source src={getVideoUrl(Video)} type={Video.mime} />
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            )}
+
             {overlay && <div className="simple-ui-hero__overlay" />}
             <div className="simple-ui-hero__content">
+
                 <h1 className="simple-ui-hero__title">{title}</h1>
                 {description && (
                     <p className="simple-ui-hero__subtitle">{description}</p>

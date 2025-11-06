@@ -6,6 +6,25 @@
   --button-primary: #222222;
   --button-primary-hover: #111111;
   --bg-footer: #222222;
+
+  /* Header Configuration */
+  --header-background-color: var(--primary-bg);
+  --header-logo-align: left;
+
+  /* Hero Configuration */
+  --hero-text-align: center;
+  --hero-overlay: true;
+  --hero-height: 90vh;
+  --hero-title-font-size: 3.5rem;
+  --hero-title-font-weight: 700;
+  --hero-title-line-height: 1.2;
+  --hero-title-margin: 0 0 1rem 0;
+  --hero-title-color: #ffffff;
+
+
+  --hero-subtitle-font-size: 1.25rem;
+  --hero-subtitle-font-weight: 300;
+
 }
 
 html,
