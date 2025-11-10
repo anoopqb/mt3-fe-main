@@ -25,7 +25,7 @@ const componentMapping: { [key: string]: React.ComponentType<any> } = {
 
 const DynamicZoneManager: React.FC<DynamicZoneManagerProps> = ({
     dynamicZone,
-    baseImageUrl = 'http://localhost:1337',
+    baseImageUrl = process.env.NEXT_PUBLIC_IMAGE_URL,
     propertyID = ''
 }) => {
     return (

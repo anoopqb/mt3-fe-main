@@ -155,10 +155,13 @@ const Hero = ({
                                 {ctaItem.label}
                             </a>
                         ))}
+
                     </div>
                 )}
             </div>
-        </section>
+
+
+        </section >
     );
 };
 

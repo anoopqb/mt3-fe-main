@@ -1,5 +1,5 @@
 import React from 'react';
-import { OneColumnContentProps, BackgroundImageData, FeeCalculator } from './types';
+import { OneColumnContentProps, BackgroundImageData } from './types';
 import './OneColumnContent.css';
 
 import FeeCalc from '../FeeCalc';
@@ -12,17 +12,12 @@ const OneColumnContent: React.FC<OneColumnContentProps> = ({
     className = '',
     overlayOpacity = 0.4,
     textAlign = 'center',
-    propertyID = '',
-    feeCalculator = null,
-    disclaimer = '*Restrictions May Apply',
 }) => {
     const getOptimalImageUrl = (imageData: BackgroundImageData): string => {
         // Return the best available image format for background, preferring large > medium > original > small
         return imageData.url;
     };
 
-
-    const shouldShowFeeCalc = feeCalculator === null || (feeCalculator && !feeCalculator.disable);
 
     const containerClasses = [
         'one-column-content',
@@ -84,7 +79,7 @@ const OneColumnContent: React.FC<OneColumnContentProps> = ({
 
             </div>
 
-            {shouldShowFeeCalc && <FeeCalc propertyID={propertyID} />}
+            {/* {shouldShowFeeCalc && <FeeCalc propertyID={propertyID} />} */}
 
 
         </>

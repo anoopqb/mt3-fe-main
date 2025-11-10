@@ -18,6 +18,8 @@ const Footer = ({
     PhoneNumber,
     OfficeHours,
 }: FooterProps) => {
+
+
     return (
         <footer className="simple-ui-footer">
             <div className="footer-inner">

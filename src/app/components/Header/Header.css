@@ -40,3 +40,7 @@
 .header-menu-item:hover {
   color: var(--color-primary);
 }
+
+.header-phone {
+  margin-left: 15px;
+}

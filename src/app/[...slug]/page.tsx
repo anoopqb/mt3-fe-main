@@ -1,7 +1,6 @@
 import fetchContentType, { StrapiData } from "@/lib/fetchContentType";
 import { notFound } from "next/navigation";
 import PageContent from "@/lib/PageContent";
-import { getPropertyID } from "@/lib/getPropertyID";
 
 export const dynamic = 'force-static';
 
@@ -40,7 +39,7 @@ const InnerPage = async ({ params, searchParams }: { params: { slug: string[] },
   const resolvedSearchParams = await searchParams;
   const status = resolvedSearchParams?.status;
 
-  const [pageData, propertyID] = await Promise.all([
+  const [pageData] = await Promise.all([
     fetchContentType(
       'pages',
       {
@@ -52,14 +51,13 @@ const InnerPage = async ({ params, searchParams }: { params: { slug: string[] },
       },
       true,
     ) as Promise<StrapiData>,
-    getPropertyID()
   ]);
 
   if (!pageData) notFound();
 
   return (
     <>
-      <PageContent pageData={pageData} propertyID={propertyID} />
+      <PageContent pageData={pageData} />
     </>
   );
 };

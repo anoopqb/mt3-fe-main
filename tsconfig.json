@@ -34,11 +34,12 @@
     ".next/types/**/*.ts",
     "build/local/types/**/*.ts",
     "build/siteA/types/**/*.ts",
+    "build/siteB/types/**/*.ts",
     "build/sitea/types/**/*.ts",
     "build/siteb/types/**/*.ts",
     "next-env.d.ts",
     "out/sitea/types/**/*.ts",
-    "build/siteB/types/**/*.ts"
+    "build/a/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

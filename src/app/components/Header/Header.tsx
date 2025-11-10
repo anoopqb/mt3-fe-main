@@ -20,6 +20,7 @@ const Header = ({ Logo, topNavItems }: HeaderProps) => {
             </a>
           ))}
         </nav>
+
       </div>
     </header>
   );
