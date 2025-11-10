@@ -5,3 +5,4 @@ export { default as OneColumnContent } from "./OneColumnContent";
 export { default as Footer } from "./Footer";
 // export { default as FeeCalc } from "./FeeCalc";
 export { default as Manager } from "./manager";
+export { default as SpecialsPopup } from "./SpecialsPopup";

@@ -1,7 +1,11 @@
 body {
-    --button-primary: #DB7E48;
+    --button-primary: #ffb81c;
     --button-primary-hover: #9CD0D3;
     --primary-bg: #ffffff;
-    --primary-color: #445a3e;
-    --bg-footer: #1a5667;
+    --primary-color: #fff;
+    --bg-footer: #31434e;
+
+
+
+    --header-background-color: #31434e;
 }
