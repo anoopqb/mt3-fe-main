@@ -79,6 +79,7 @@
 }
 
 .specials-popup__title {
+    font-family: var(--title-font-family);
     font-size: 1.75rem;
     font-weight: 700;
     margin: 0 0 1rem 0;
@@ -116,7 +117,7 @@
 
 .specials-popup__button--primary {
     background-color: var(--button-primary, #007bff);
-    color: white;
+    color: var(--button-color);
 }
 
 .specials-popup__button--primary:hover {
@@ -133,7 +134,7 @@
 
 .specials-popup__button--secondary:hover {
     background-color: var(--button-primary, #007bff);
-    color: white;
+    color: var(--button-color);
     transform: translateY(-2px);
 }
 

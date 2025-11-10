@@ -6,6 +6,7 @@
   --button-primary: #222222;
   --button-primary-hover: #111111;
   --bg-footer: #222222;
+  --button-color: #fff;
 
   /* Header Configuration */
   --header-background-color: var(--primary-bg);
@@ -24,6 +25,8 @@
 
   --hero-subtitle-font-size: 1.25rem;
   --hero-subtitle-font-weight: 300;
+
+  --title-font-family: sans-serif;
 
 }
 

@@ -21,6 +21,10 @@ const Header = ({ Logo, topNavItems }: HeaderProps) => {
           ))}
         </nav>
 
+        <div className="schedule-tour-button">
+          <a href="/schedule-tour" className="schedule-tour-button-link">Schedule a Tour</a>
+        </div>
+
       </div>
     </header>
   );

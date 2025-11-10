@@ -44,3 +44,14 @@
 .header-phone {
   margin-left: 15px;
 }
+
+.schedule-tour-button {
+  margin-left: 20px;
+}
+
+.schedule-tour-button-link {
+  background-color: var(--button-primary);
+  color: var(--button-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+}

@@ -48,6 +48,7 @@
 
 .simple-ui-hero__title {
     font-size: var(--hero-title-font-size);
+    font-family: var(--title-font-family);
     font-weight: 700;
     margin: var(--hero-title-margin);
     line-height: var(--hero-title-line-height);
@@ -75,7 +76,7 @@
     display: inline-block;
     padding: 1rem 2rem;
     background: var(--button-primary);
-    color: white;
+    color: var(--button-color);
     text-decoration: none;
     border: none;
     border-radius: 8px;
